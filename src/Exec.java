@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -39,7 +40,7 @@ public class Exec extends Application {
 	Button register = new Button();
 	
 	
-	
+	ArrayList<account> acc;
 	
 	
 	
@@ -50,6 +51,9 @@ public class Exec extends Application {
 		addNodes();
 		
 		
+		
+		
+		account.GetAccountsFromFile(new File("accounts.txt"));
 		
 		
 		root.getChildren().addAll(adds);
@@ -117,8 +121,23 @@ public class Exec extends Application {
 	
 	public void buttFunctions(){
 		
+		login.setOnMouseClicked(e->{
+			for(account hej:acc){
+				checkiflogin(hej.name, hej.pass);
+			}
+			
+		});
 		
+	}
+	
+	
+	private void checkiflogin(String name, String pass) {
+		// TODO Auto-generated method stub
+		if(nf.getText().equals(name) && pf.getText().equals(pass)){
+			System.out.println("logged");
+		}
 		
+
 	}
 	
 	
